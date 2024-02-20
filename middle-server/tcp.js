@@ -7,7 +7,7 @@ export const spawnServer = async (port) => {
   const totalConnections = new RandomMap();
 
   const server = net.createServer((socket) => {
-    console.log(totalConnections);
+    console.log(totalConnections, socket);
 
     totalConnections.set(socket, 0);
 
@@ -35,7 +35,9 @@ export const spawnServer = async (port) => {
       ]));
     });
 
-    socket.on('close', () => totalConnections.delete(socket));
+    socket.on('close', () => {
+      totalConnections.set(recipient, connectionId - 1);
+    });
   });
 
   return new Promise((mountRes, mountRej) => {

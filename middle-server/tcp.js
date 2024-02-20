@@ -10,9 +10,9 @@ export const spawnServer = async (port) => {
     totalConnections.set(socket, 0);
 
     let connectionId;
+    let recipient;
 
     socket.on('data', (data) => {
-      let recipient = totalConnections.get(socket);
       if (!recipient) {
         const roll = (mustBeDiff) => { // Recursive rolling to prevent loopback
           if (totalConnections.size < 2) throw new Error('Can\'t find another client');

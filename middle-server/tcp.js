@@ -23,7 +23,6 @@ export const spawnServer = async (port) => {
 
         recipient = roll();
 
-        totalConnections.get(socket).recipient = recipient;
         connectionId = totalConnections.get(recipient);
         totalConnections.set(recipient, connectionId + 1);
       }

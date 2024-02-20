@@ -1,32 +1,40 @@
 // import Fastify from 'fastify';
 import net from 'net';
 import { RandomMap } from './randomstruct.js';
+import { toConnectionTag } from './utils.js';
 
 export const spawnServer = async (port) => {
-  const allSockets = new RandomMap();
+  const totalConnections = new RandomMap();
 
   const server = net.createServer((socket) => {
-    allSockets.set(socket, false);
+    totalConnections.set(socket, 0);
+
+    let connectionId;
 
     socket.on('data', (data) => {
-      let recipient = allSockets.get(socket);
+      let recipient = totalConnections.get(socket);
       if (!recipient) {
         const roll = (mustBeDiff) => { // Recursive rolling to prevent loopback
-          if (allSockets.size < 2) throw new Error('Can\'t find another client');
-          const newSocket = allSockets.getRandomKey();
+          if (totalConnections.size < 2) throw new Error('Can\'t find another client');
+          const newSocket = totalConnections.getRandomKey();
           if (newSocket === mustBeDiff) return roll(mustBeDiff);
           return newSocket;
         };
 
         recipient = roll();
 
-        allSockets.set(socket, recipient);
+        totalConnections.get(socket).recipient = recipient;
+        connectionId = totalConnections.get(recipient);
+        totalConnections.set(recipient, connectionId + 1);
       }
 
-      recipient.write(data);
+      recipient.write(Buffer.concat([
+        toConnectionTag(connectionId, false),
+        data,
+      ]));
     });
 
-    socket.on('close', () => allSockets.delete(socket));
+    socket.on('close', () => totalConnections.delete(socket));
   });
 
   return new Promise((mountRes, mountRej) => {

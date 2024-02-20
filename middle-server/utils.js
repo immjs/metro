@@ -6,3 +6,10 @@ export function randomPortNumber() {
   // return listOfOnesAndZeroes.reduce((p, c) => p * 2 + c, 0) + 2**15 + 2**14;
   return 59646; // FOR TESTING PURPOSES
 }
+
+export function toConnectionTag(connectionId, isEnd) {
+  const newConTag = connectionId + isEnd * 128;
+  const newConBuf = Buffer.alloc(1);
+  newConBuf.writeUint8(newConTag);
+  return newConBuf;
+}

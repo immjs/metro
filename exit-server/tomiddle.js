@@ -1,4 +1,5 @@
 import net from 'net';
+import ipaddr from 'ipaddr.js';
 
 // const MAX_CONCURRENT_SOCKETS = 128;
 
@@ -21,7 +22,7 @@ export function connectTo(host, port) {
     const actualData = data.subarray(1);
 
     if (!(connectionId in socketArray)) {
-      const host = actualData;
+      const host = ipaddr.fromByteArray(actualData).toString();
 
       socketArray[connectionId] = net.createConnection({
         host,

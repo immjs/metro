@@ -1,6 +1,5 @@
 // import Fastify from 'fastify';
 import net from 'net';
-import ipaddr from 'ipaddr.js';
 import { RandomMap } from './randomstruct.js';
 
 export const spawnServer = async (port) => {

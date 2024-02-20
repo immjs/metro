@@ -6,6 +6,7 @@ const client = new NatAPI({
 });
 
 export function advertise(port) {
+  if (config.ignoreUPnP) return Promise.resolve(() => Promise.resolve());
   return new Promise((mountRes, mountRej) => {
     client.map({ publicPort: port, privatePort: port, ttl: config.refreshServer, protocol: 'TCP' }, (err) => {
       if (err) return mountRej(err);
@@ -24,6 +25,7 @@ export function advertise(port) {
 }
 
 export function externalIp() {
+  if (config.ignoreUPnP) return Promise.resolve(null);
   return new Promise((res, rej) => {
     return client.externalIp(function(err, ip) {
       if (err) return rej(err);

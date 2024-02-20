@@ -1,0 +1,19 @@
+{
+  "name": "@metronetworks/conductor",
+  "version": "1.0.0",
+  "description": "Conductor for a metro network",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "immjs",
+  "license": "Hippocratic-2.1",
+  "dependencies": {
+    "better-sqlite3": "^9.4.1",
+    "drizzle-orm": "^0.29.3",
+    "fastify": "^4.26.1"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.20.14"
+  }
+}

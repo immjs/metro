@@ -1,0 +1,17 @@
+{
+  "name": "@metronetworks/server",
+  "version": "1.0.0",
+  "description": "Server for Metro",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "immjs",
+  "license": "Hippocratic-2.1",
+  "dependencies": {
+    "@motrix/nat-api": "^0.3.4",
+    "ipaddr.js": "^2.1.0",
+    "uuid": "^9.0.1"
+  }
+}

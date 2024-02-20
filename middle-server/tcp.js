@@ -7,6 +7,8 @@ export const spawnServer = async (port) => {
   const totalConnections = new RandomMap();
 
   const server = net.createServer((socket) => {
+    console.log(totalConnections);
+
     totalConnections.set(socket, 0);
 
     let connectionId;

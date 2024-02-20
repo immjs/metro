@@ -1,5 +1,5 @@
 import { spawnServer } from './tcp.js';
-import { advertise } from './upnp.js';
+import { advertise, externalIp } from './upnp.js';
 
 import { randomPortNumber } from './utils.js';
 
@@ -10,6 +10,8 @@ import data from './data.json' assert { type: 'json' };
 export const nextPorts = Array.from({ length: config.allowNext }, () => randomPortNumber());
 
 const instance = {};
+
+console.log('External IP', await externalIp());
 
 async function ouroborosServer() {
   try {
@@ -29,6 +31,12 @@ async function ouroborosServer() {
     if ('closeServer' in lastInstance) await lastInstance.closeServer();
   } catch (err) {
     console.log('ew', err);
+    try {
+      instance.closeServer();
+    } catch (err) {}
+    try {
+      instance.closeUpnp();
+    } catch (err) {}
     setTimeout(ouroborosServer, config.retryRespawn * 1000);
   }
 }

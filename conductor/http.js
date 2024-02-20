@@ -24,7 +24,7 @@ export function startHttp(port) {
       port,
       host: '0.0.0.0',
     }, (err) => {
-      if (err) mountRej(err);
+      if (err) return mountRej(err);
 
       // Unmount
       mountRes((umountRes) => {

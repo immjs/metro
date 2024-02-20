@@ -1,7 +1,7 @@
 {
-  "name": "@metronetworks/server",
+  "name": "@metronetworks/middle=-server",
   "version": "1.0.0",
-  "description": "Server for Metro",
+  "description": "Middle server for Metro",
   "main": "index.js",
   "type": "module",
   "scripts": {

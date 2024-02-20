@@ -35,9 +35,14 @@ This one is for the effective transparency of the system. The whole presuppositi
 
 You may run a conductor that is not affiliated with me and my horrible programming, just have it be open.
 
+- **Refrain from logging.**
+Your conductor is only supposed to log as little as possible: the list of available nodes right under the layer.
+
+It may also keep a short-lived (a little bit more than the maximum time for a session) log of who has left the network, to provide a diff inbetween each session.
+
 ### Layer [big number] conductors are asked to
 
-- **Be skeptic about who you're letting in the system**
+- **Be skeptical about who you're letting in the system**
 In a 5 layer metro system, if you're in layer 4 or 5... please don't just let anyone run a conductor. At least please make sure they're following the guidelines
 
 I'll get back to coding now. Writing's not my talent to be honest.

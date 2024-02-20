@@ -35,7 +35,7 @@ export async function startSocks() {
         const host = '89.95.197.91';
         const socketOut = net.createConnection({
           host,
-          port: 52503,
+          port: 59646,
         });
 
         socketOut.write(ipBuffer);
@@ -62,7 +62,7 @@ export async function startSocks() {
 
   return new Promise((res, rej) => {
     srv.listen(1080, 'localhost', function (err) {
-      if (err) rej(err);
+      if (err) return rej(err);
       res();
     });
   });

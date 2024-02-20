@@ -1,0 +1,12 @@
+{
+  "name": "@metronetworks/exit-server",
+  "version": "1.0.0",
+  "description": "Exit server for Metro",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "immjs",
+  "license": "Hippocratic-2.1"
+}

@@ -30,13 +30,6 @@ async function ouroborosServer() {
     if ('closeUpnp' in lastInstance) await lastInstance.closeUpnp();
     if ('closeServer' in lastInstance) await lastInstance.closeServer();
   } catch (err) {
-    console.log('ew', err);
-    try {
-      instance.closeServer();
-    } catch (err) {}
-    try {
-      instance.closeUpnp();
-    } catch (err) {}
     setTimeout(ouroborosServer, config.retryRespawn * 1000);
   }
 }

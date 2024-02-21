@@ -10,8 +10,8 @@ export async function resolve(domain) {
     let settled = false;
   
     const promises = [
-      resolver.resolve6(domain).catch(() => null),
-      resolver.resolve4(domain).catch(() => null),
+      // resolver.resolve6(domain),
+      resolver.resolve4(domain),
     ];
     for (let promise of promises) {
       promise

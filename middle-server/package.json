@@ -1,5 +1,5 @@
 {
-  "name": "@metronetworks/middle=-server",
+  "name": "@metronetworks/middle-server",
   "version": "1.0.0",
   "description": "Middle server for Metro",
   "main": "index.js",

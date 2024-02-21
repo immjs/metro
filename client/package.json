@@ -13,6 +13,7 @@
     "dns-over-http-resolver": "^3.0.2",
     "http-string-parser": "^0.0.6",
     "ipaddr.js": "^2.1.0",
-    "lum_socksv5": "^0.0.13"
+    "lum_socksv5": "^0.0.13",
+    "ws": "^8.16.0"
   }
 }

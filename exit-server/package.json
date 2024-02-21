@@ -10,6 +10,7 @@
   "author": "immjs",
   "license": "Hippocratic-2.1",
   "dependencies": {
-    "ipaddr.js": "^2.1.0"
+    "ipaddr.js": "^2.1.0",
+    "ws": "^8.16.0"
   }
 }

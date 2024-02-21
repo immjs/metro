@@ -32,8 +32,6 @@ export const spawnServer = async (port) => {
 
         const clientIp = myClients[clientId];
 
-        console.log('S to C', actualData);
-
         clients[clientIp].send(actualData);
       });
 
@@ -62,8 +60,6 @@ export const spawnServer = async (port) => {
       server.clients[clientId] = ip;
 
       socket.on('message', (message) => {
-        console.log('C to S', message);
-
         server.socket.send(Buffer.concat([
           toConnectionTag(clientId, false),
           message,

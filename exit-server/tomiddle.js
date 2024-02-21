@@ -78,6 +78,10 @@ export function connectTo(host, port) {
         if (isEnd) return connectionArray[clientConnId].close();
         connectionArray[clientConnId].write(actualData);
       });
-    })
+    });
+
+    res(() => {
+      return socket.close();
+    });
   });
 }

@@ -1,4 +1,4 @@
-import { spawnServer } from './tcp.js';
+import { spawnServer } from './ws.js';
 import { advertise, externalIp } from './upnp.js';
 
 import { randomPortNumber } from './utils.js';

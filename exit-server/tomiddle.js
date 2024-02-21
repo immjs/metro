@@ -27,7 +27,7 @@ export function connectTo(host, port) {
           for (let i = 0; i < 128 * 256; i += 1) {
             const clientConnId = clientId * 128 * 256 + i;
             if (connectionArray[clientConnId] instanceof net.Socket) {
-              connectionArray[clientConnId].close();
+              connectionArray[clientConnId].end();
               delete connectionArray[clientConnId];
             }
           }

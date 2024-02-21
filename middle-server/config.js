@@ -5,5 +5,5 @@ export default {
 
   allowNext: 1, // * refreshServer = duration one can leech off each server
 
-  ignoreUPnP: true,
+  ignoreUPnP: false,
 };

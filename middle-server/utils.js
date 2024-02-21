@@ -13,3 +13,7 @@ export function toConnectionTag(connectionId, isEnd) {
   newConBuf.writeUint8(newConTag);
   return newConBuf;
 }
+
+export function getFirstEmpty(arr) {
+  return arr.findIndex((v) => v == null);
+}
